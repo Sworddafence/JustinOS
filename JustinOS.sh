@@ -1,14 +1,12 @@
 #!/bin/bash
-apt -y install wget gnupg dirmngr
-wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
-gpg --keyserver hkp://keys.gnupg.net --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
-echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
-gpg -a --export ED444FF07D8D0BF6 | sudo apt-key add -
-apt update
-apt -y upgrade
-apt -y dist-upgrade
-apt -y autoremove --purge
-apt -y install kali-linux-everything
+wget -O - https://www.kismetwireless.net/repos/kismet-release.gpg.key | sudo apt-key add -
+echo 'deb https://www.kismetwireless.net/repos/apt/release/bullseye bullseye main' | sudo tee /etc/apt/sources.list.d/kismet.list
+sudo apt update
+apt-get -y install build-essential libssl-dev subversion checkinstall curl wget gnupg2
+apt-get -y install nmap lynis fierce nikto skipfish kismet wireshark john hashcat
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+chmod +x msfinstall
+./msfinstall
 tasksel install desktop gnome-desktop
 systemctl set-default graphical.target
 reboot
