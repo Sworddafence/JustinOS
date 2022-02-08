@@ -1,4 +1,5 @@
 #!/bin/bash
+gsettings set org.gnome.desktop.background picture-uri file:////home/john/back.jpg
 mkdir -p ~/.icons
 cd .icons
 git clone https://github.com/EliverLara/candy-icons.git
