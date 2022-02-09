@@ -10,11 +10,11 @@ wget --output-document=back.jpg https://www.fanbolt.com/storage/2021/08/anime-ip
 wget --output-document=rice.sh https://raw.githubusercontent.com/Sworddafence/JustinOS/main/rice.sh
 
 gsettings set org.gnome.desktop.background picture-uri file:////home/john/back.jpg
-mkdir -p /home/john/.icons
+mkdir /home/john/.icons
 cd .icons
 git clone https://github.com/EliverLara/candy-icons.git
 cd ..
-mkdir -p /home/john/.themes
+mkdir /home/john/.themes
 cd .themes
 git clone https://github.com/EliverLara/Nordic.git
 cd ..
