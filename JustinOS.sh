@@ -8,20 +8,11 @@ apt-get -y install nmap lynis fierce nikto skipfish kismet wireshark john hashca
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
 chmod +x msfinstall
 ./msfinstall
-
+apt-get install python3 python3-dev python3-pip git
+pip3 install --upgrade git+https://github.com/arthaud/python3-pwntools.git
+wget --output-document=back.jpg https://www.fanbolt.com/storage/2021/08/anime-iphone-wallpaper.jpg
+wget --output-document=rice.sh https://raw.githubusercontent.com/Sworddafence/JustinOS/main/rice.sh
 
 tasksel install desktop gnome-desktop
 systemctl set-default graphical.target
-
-mkdir -p ~/.icons
-cd .icons
-git clone https://github.com/EliverLara/candy-icons.git
-cd ..
-mkdir -p ~/.themes
-cd .themes
-git clone https://github.com/EliverLara/Sweet.git
-cd ..
-gsettings set org.gnome.desktop.interface gtk-theme "Sweet"
-gsettings set org.gnome.desktop.wm.preferences theme "Sweet"
-gsettings set org.gnome.desktop.interface icon-theme candy-icons
 reboot
